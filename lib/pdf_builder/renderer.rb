@@ -85,10 +85,11 @@ module PdfBuilder
                     size: 14, style: :bold, width: 145, align: :right)
       end
 
-      # Player Name field tucked into the band's right side.
-      player_x = x + w - 150
-      player_y = y - band_h + 12
-      underlined_field(player_x, player_y, 145, 14, "Player Name", @ch.player.to_s)
+      # Player Name rendered in white inside the dark band, right side.
+      with_color(BAND_FG) do
+        styled_text("Player: #{@ch.player}", x + w - 150, y - band_h + 8,
+                    size: 9, style: :bold, width: 145, align: :right)
+      end
 
       row_y = y - band_h - 6
       char_fields_row1(x, row_y, w, 22)
