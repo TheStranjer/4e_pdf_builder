@@ -1,0 +1,231 @@
+AllCops:
+  TargetRubyVersion: 3.3
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - "bin/**/*"
+    - "vendor/**/*"
+    - "tmp/**/*"
+    - "Gemfile.lock"
+
+# ----------------------------------------------------------------------------
+# Layout
+# ----------------------------------------------------------------------------
+Layout/LineLength:
+  Max: 100
+  AllowedPatterns:
+    - '\A\s*#'
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Layout/TrailingEmptyLines:
+  Enabled: true
+
+# ----------------------------------------------------------------------------
+# Style
+# ----------------------------------------------------------------------------
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+
+Style/Documentation:
+  Enabled: false
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+  EnforcedShorthandSyntax: always
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: no_comma
+
+Style/GuardClause:
+  Enabled: true
+
+Style/IfUnlessModifier:
+  Enabled: true
+
+Style/RedundantReturn:
+  Enabled: true
+
+Style/NumericLiterals:
+  MinDigits: 6
+
+Style/SymbolArray:
+  EnforcedStyle: percent
+
+Style/WordArray:
+  EnforcedStyle: percent
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+  AllowedMethods:
+    - require
+    - require_relative
+    - puts
+    - print
+    - p
+    - pp
+    - warn
+    - raise
+    - exit
+    - abort
+    - include
+    - extend
+    - prepend
+    - attr_reader
+    - attr_writer
+    - attr_accessor
+    - private
+    - protected
+    - public
+    - to
+    - not_to
+    - it
+    - describe
+    - context
+    - before
+    - after
+    - let
+    - let!
+    - subject
+    - expect
+
+# ----------------------------------------------------------------------------
+# Metrics — strict
+# ----------------------------------------------------------------------------
+Metrics/MethodLength:
+  Max: 15
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+
+Metrics/ClassLength:
+  Max: 100
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+
+Metrics/ModuleLength:
+  Max: 100
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/CyclomaticComplexity:
+  Max: 8
+
+Metrics/PerceivedComplexity:
+  Max: 8
+
+Metrics/BlockLength:
+  Max: 25
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+  Exclude:
+    - "spec/**/*"
+    - "*.gemspec"
+
+Metrics/BlockNesting:
+  Max: 3
+
+Metrics/ParameterLists:
+  Max: 4
+  CountKeywordArgs: true
+
+# ----------------------------------------------------------------------------
+# Naming
+# ----------------------------------------------------------------------------
+Naming/MethodParameterName:
+  MinNameLength: 2
+  AllowedNames:
+    - x
+    - y
+    - id
+    - io
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+# ----------------------------------------------------------------------------
+# Lint — keep maximum strictness
+# ----------------------------------------------------------------------------
+Lint/MissingSuper:
+  Enabled: true
+
+Lint/UnusedMethodArgument:
+  Enabled: true
+
+Lint/UnusedBlockArgument:
+  Enabled: true
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: true
+
+Lint/AssignmentInCondition:
+  Enabled: true
+
+# ----------------------------------------------------------------------------
+# Security
+# ----------------------------------------------------------------------------
+Security/Eval:
+  Enabled: true
+
+Security/Open:
+  Enabled: true
+
+Security/YAMLLoad:
+  Enabled: true
+
+Security/MarshalLoad:
+  Enabled: true
+
+# ----------------------------------------------------------------------------
+# Specs — relax a few rules that don't make sense in RSpec files
+# ----------------------------------------------------------------------------
+Metrics/MethodLength:
+  Exclude:
+    - "spec/**/*"
+
+Metrics/AbcSize:
+  Exclude:
+    - "spec/**/*"
+
+Style/MethodCallWithArgsParentheses:
+  Exclude:
+    - "spec/**/*"
