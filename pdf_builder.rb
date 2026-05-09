@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 # Usage:
 #   ./pdf_builder.rb <input.dnd4e> [output.pdf]
 #
@@ -15,7 +17,7 @@ end
 usage_and_exit if ARGV.empty? || %w[-h --help].include?(ARGV.first)
 
 input  = ARGV[0]
-output = ARGV[1] || input.sub(/\.dnd4e\z/i, "") + ".pdf"
+output = ARGV[1] || "#{input.sub(/\.dnd4e\z/i, "")}.pdf"
 
 begin
   path = PdfBuilder.build(input, output)

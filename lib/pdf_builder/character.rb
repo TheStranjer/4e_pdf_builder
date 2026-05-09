@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "ostruct"
 
 module PdfBuilder
@@ -32,18 +34,15 @@ module PdfBuilder
 
     Power = Struct.new(:name, :usage, :action_type, :weapons, keyword_init: true)
     Weapon = Struct.new(:name, :attack_bonus, :damage, :defense, :attack_stat, keyword_init: true)
-    LootItem = Struct.new(:name, :type, :count, :equipped, keyword_init: true)
+    LootItem = Struct.new(:name, :type, :quantity, :equipped, keyword_init: true)
     RaceFeature = Struct.new(:name, :description, keyword_init: true)
 
-    attr_accessor :name, :player, :level, :class_name, :race, :size, :gender,
-                  :age, :height, :weight, :alignment, :deity, :company,
-                  :paragon_path, :epic_destiny, :rpga_number, :total_xp,
-                  :carried_money, :portrait_path
-
-    attr_accessor :base_abilities, :ability_scores, :stats,
-                  :race_features, :class_features, :feats,
-                  :powers, :loot, :languages, :proficiencies,
-                  :saving_throw_mods, :resistances
+    attr_accessor :name, :player, :level, :class_name, :race, :size, :gender, :age,
+                  :height, :weight, :alignment, :deity, :company, :paragon_path,
+                  :epic_destiny, :rpga_number, :total_xp, :carried_money, :portrait_path,
+                  :base_abilities, :ability_scores, :stats, :race_features, :class_features,
+                  :feats, :powers, :loot, :languages, :proficiencies, :saving_throw_mods,
+                  :resistances
 
     def initialize
       @base_abilities    = {}
@@ -100,7 +99,7 @@ module PdfBuilder
     end
 
     def store_stat(value, aliases, adds)
-      entry = StatEntry.new(value: value, adds: adds)
+      entry = StatEntry.new(value:, adds:)
       aliases.each do |a|
         @stats[normalize(a)] = entry
       end

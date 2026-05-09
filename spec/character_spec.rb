@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe PdfBuilder::Character do
   describe "#stat" do
     let(:ch) { described_class.new }
@@ -35,7 +37,7 @@ RSpec.describe PdfBuilder::Character do
           { type: "Class",   value: 2 },
           { type: "Feat",    value: 1 },
           { type: "Ability", value: 4 },
-        ],
+        ]
       )
       expect(entry.total_of_type("Class")).to eq(3)
       expect(entry.total_of_type("Feat", "Ability")).to eq(5)

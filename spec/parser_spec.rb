@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe PdfBuilder::Parser do
   describe ".parse_file" do
     subject(:character) { described_class.parse_file(joe_rogan_path) }
@@ -26,12 +28,12 @@ RSpec.describe PdfBuilder::Parser do
 
     it "captures base ability scores from <AbilityScores>" do
       expect(character.base_abilities).to include(
-        strength:     18,
+        strength: 18,
         constitution: 11,
-        dexterity:    10,
+        dexterity: 10,
         intelligence: 10,
-        wisdom:       14,
-        charisma:     8,
+        wisdom: 14,
+        charisma: 8
       )
     end
 
@@ -74,7 +76,7 @@ RSpec.describe PdfBuilder::Parser do
       expect(character.proficiencies).to include(
         "Armor Proficiency (Scale)",
         "Shield Proficiency (Heavy)",
-        "Weapon Proficiency (Short sword)",
+        "Weapon Proficiency (Short sword)"
       )
     end
 

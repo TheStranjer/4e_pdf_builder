@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require_relative "pdf_builder/character"
 require_relative "pdf_builder/parser"
 require_relative "pdf_builder/renderer"
 
 module PdfBuilder
-  VERSION = "0.1.0".freeze
+  VERSION = "0.1.0"
 
   class Error < StandardError; end
   class FileNotFoundError < Error; end

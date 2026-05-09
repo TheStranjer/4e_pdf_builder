@@ -86,6 +86,8 @@ Style/WordArray:
 
 Style/MethodCallWithArgsParentheses:
   Enabled: true
+  Exclude:
+    - "spec/**/*"
   AllowedMethods:
     - require
     - require_relative
@@ -127,6 +129,8 @@ Metrics/MethodLength:
     - array
     - hash
     - heredoc
+  Exclude:
+    - "spec/**/*"
 
 Metrics/ClassLength:
   Max: 100
@@ -144,6 +148,8 @@ Metrics/ModuleLength:
 
 Metrics/AbcSize:
   Max: 20
+  Exclude:
+    - "spec/**/*"
 
 Metrics/CyclomaticComplexity:
   Max: 8
@@ -215,17 +221,3 @@ Security/YAMLLoad:
 Security/MarshalLoad:
   Enabled: true
 
-# ----------------------------------------------------------------------------
-# Specs — relax a few rules that don't make sense in RSpec files
-# ----------------------------------------------------------------------------
-Metrics/MethodLength:
-  Exclude:
-    - "spec/**/*"
-
-Metrics/AbcSize:
-  Exclude:
-    - "spec/**/*"
-
-Style/MethodCallWithArgsParentheses:
-  Exclude:
-    - "spec/**/*"
