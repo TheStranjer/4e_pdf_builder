@@ -4,6 +4,7 @@ ruby "~> 4.0"
 
 gem "nokogiri", "~> 1.16"
 gem "prawn",    "~> 2.5"
+gem "rubocop"
 
 group :development, :test do
   gem "rspec",    "~> 3.13"
